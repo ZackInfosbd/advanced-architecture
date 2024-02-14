@@ -1,7 +1,6 @@
-import { Alarm } from 'src/alarms/domain/alarm';
+import { Alarm } from '../../domain/alarm';
 
-// first Port
 export abstract class AlarmRepository {
   abstract findAll(): Promise<Alarm[]>;
-  abstract create(alarm: Alarm): Promise<Alarm>;
+  abstract save(alarm: Alarm): Promise<Alarm>;
 }
