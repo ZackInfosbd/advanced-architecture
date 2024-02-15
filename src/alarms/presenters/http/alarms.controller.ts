@@ -10,8 +10,22 @@ export class AlarmsController {
   @Post()
   create(@Body() createAlarmDto: CreateAlarmDto) {
     return this.alarmsService.create(
-      // new CreateAlarmCommand(createAlarmDto.name, createAlarmDto.severity),
-      new CreateAlarmCommand('Alarm Test', 'High'),
+      // new CreateAlarmCommand(
+      //   createAlarmDto.name,
+      //   createAlarmDto.severity,
+      //   createAlarmDto.triggeredAt,
+      //   createAlarmDto.items,
+      // ),
+      new CreateAlarmCommand('Alarm Test', 'High', new Date(), [
+        {
+          name: 'Item 1',
+          type: 'TYPE_1',
+        },
+        {
+          name: 'Item 2',
+          type: 'TYPE_2',
+        },
+      ]),
     );
   }
 
