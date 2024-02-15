@@ -1,1 +1,1 @@
-export class GetAlarmQuery {}
+export class GetAlarmsQuery {}
