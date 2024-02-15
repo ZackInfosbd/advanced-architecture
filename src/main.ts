@@ -7,6 +7,7 @@ async function bootstrap() {
       driver: 'orm',
     }),
   );
+
   await app.listen(3000);
 }
 bootstrap();

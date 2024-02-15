@@ -4,7 +4,7 @@ import { Alarm } from '../alarm';
 import { Injectable } from '@nestjs/common';
 
 @Injectable()
-export class AlarmsFactory {
+export class AlarmFactory {
   create(name: string, severity: string) {
     const alarmId = randomUUID();
     const alarmSeverity = new AlarmSeverity(severity as AlarmSeverity['value']);
