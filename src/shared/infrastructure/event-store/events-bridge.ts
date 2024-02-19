@@ -9,7 +9,7 @@ import { ChangeStream, ChangeStreamInsertDocument } from 'mongodb';
 import { Model } from 'mongoose';
 import { EventDeserializer } from './deserializers/event.deserializer';
 import { EVENT_STORE_CONNECTION } from 'src/core/core.constants';
-import { EventDocument } from './schemas/event.schema';
+import { Event, EventDocument } from './schemas/event.schema';
 
 @Injectable()
 export class EventsBridge
@@ -28,6 +28,8 @@ export class EventsBridge
     // In the poll-based approach, instead of using a change stream (as we're doing here), we would periodically
     // poll the event store for new events. To keep track of what events we already processed,
     // we would need to store the last processed event (cursor) in a separate collection.
+
+    // @ts-ignore
     this.changeStream = this.eventStore
       .watch()
       .on('change', (change: ChangeStreamInsertDocument<EventDocument>) => {
